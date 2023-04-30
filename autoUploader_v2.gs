@@ -33,7 +33,7 @@ function threadValue1(thrd) {
     const responses1 = SpreadsheetApp.openByUrl("URL1").getSheetByName("Sheet 1");
     const responses2_1 = SpreadsheetApp.openByUrl("URL2_1").getSheetByName("Sheet 1");
     const responses2_2 = SpreadsheetApp.openByUrl("URL2_2").getSheetByName("Sheet 1");
-    //const responses3 = SpreadsheetApp.openByUrl("URL3").getSheetByName("Sheet 1");
+    const responses3 = SpreadsheetApp.openByUrl("URL3").getSheetByName("Sheet 1");
     
     var attach = messageValue.getAttachments();
    
