@@ -105,15 +105,16 @@ function threadValue1(thrd) {
             }
             
           } else {
+            messageValue.star();
             thrd.addLabel(f);
-            messageValue.forward(amanda, {subject: fail_subject});
+            MailApp.sendEmail(amanda, fail_subject, sender);
           }
        })
 
       } else {
         messageValue.star();
         thrd.addLabel(f);
-        messageValue.forward(amanda, {subject: fail_subject});
+        MailApp.sendEmail(amanda, fail_subject, sender);
       }
 
     }
