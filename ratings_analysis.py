@@ -31,9 +31,15 @@ def CombineLists(path):
             break
     
     combined1, combined2 = dataframes[0][0], dataframes[0][1]
-    for j in range(1,len(dataframes)):
-        combined1 = pd.concat((combined1, dataframes[j][0])).rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
-        combined2 = pd.concat((combined2, dataframes[j][1])).rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
+    
+    if len(dataframes) >= 2:
+        for j in range(1,len(dataframes)):
+            combined1 = pd.concat((combined1, dataframes[j][0])).rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
+            combined2 = pd.concat((combined2, dataframes[j][1])).rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
+            
+    else:
+        combined1 = combined1.rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
+        combined2 = combined2.rename(columns=lambda x: 'Ans.'+str(x+1) if type(x)!=str else 'Sentences')
         
     return combined1, combined2
 
