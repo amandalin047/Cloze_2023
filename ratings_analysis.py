@@ -121,6 +121,26 @@ def PlotsAndTables(df, scatterName, boxplotName):
     
     
 def main(pathToResponses, expResName, plausResName, pathToInfo, combinedResName, scatterName, boxplotName):
+    '''pathToResponses: the path to the folder in which the response sheets are saved, e.g.,
+           if the 8 Expectancy & Plausibility response sheets are in /home/user/exp_plaus_responses
+           then pass /home/user/exp_plaus_responses as the first positional argument.
+           
+       expResName: the results sheet (all participants' answers compiled, lists combined) for Expectancy will be saved
+           as an individual file. A file name should be provided, including the file extension, e.g., exp_res.xlsx
+           
+       plausResName: the results sheet (all participants' answers compiled, lists combined) for Plausibility will be saved
+           as an individual file. A file name should be provided, including the file extension, e.g., plaus_res.xlsx
+           
+       pathToInfo: the path to the folder in which 2nd_ratings_random_sort.xlsx is saved
+       
+       combinedResName: for Expectancy & Plausibility, we need the cloze for each ending word (which we can extract
+           from 2nd_ratings_random_sort.xlsx) and we will also drop the implausible fillers. We thus need a name for
+           this file, e.g., combined.xlsx
+           
+       scatterName: the name of the scatter plot file to be saved, e.g., scatter.png
+        
+       boxplotName: the name of the scatter plot file to be saved, e.g., boxplot.png'''
+     
     exp, plaus = CombineLists(pathToResponses)
     exp_res, plaus_res = MeanStd(exp, expResName), MeanStd(plaus, plausResName)
     combined_res = CompareExpPlaus(pathToInfo, exp_res, plaus_res, combinedResName)
