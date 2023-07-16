@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 # Works for both Expectancy & Plausbility and Frame Valence & Arousal
 def CombineLists(path):
     os.chdir(path)
-    files = [[f for f in files if f.startswith('List')] for root, dirs, files in os.walk(path, topdown=True)][0]
+    files = [[f for f in fs if f.startswith('List')] for root, dirs, fs in os.walk(path, topdown=True)][0]
+    files = sorted(files)
     dataframes = []
     i = 0
     while 1:
