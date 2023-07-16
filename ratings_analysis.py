@@ -75,7 +75,7 @@ def CompareExpPlaus(path_to_2nd_ratings_random_sort, exp_res, plaus_res, outfile
     pwd = os.getcwd()
     os.chdir(path_to_2nd_ratings_random_sort)
     df = pd.concat((pd.read_excel('2nd_ratings_random_sort.xlsx', sheet_name='2nd_List1_plaus_exp')[['Index', 'Sentences', 'Cloze']],
-                    pd.read_excel('2nd_ratings_random_sort.xlsx', sheet_name='2nd_List1_plaus_exp')[['Index', 'Sentences', 'Cloze']]))
+                    pd.read_excel('2nd_ratings_random_sort.xlsx', sheet_name='2nd_List2_plaus_exp')[['Index', 'Sentences', 'Cloze']]))
     df.insert(len(df.columns), 'Exp. mean', exp_res['mean'])
     df.insert(len(df.columns), 'Plaus. mean', plaus_res['mean'])
     df = df[df['Index']!=-1].reset_index(drop=True)
